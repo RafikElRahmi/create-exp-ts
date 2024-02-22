@@ -1,0 +1,15 @@
+{
+    "name": "create-exp-ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.mjs",
+    "bin": {
+        "create-exp-ts": "index.mjs"
+    },
+    "author": "Rafik Rahmi",
+    "license": "ISC",
+    "dependencies": {
+        "fs-extra": "^11.2.0",
+        "prompts": "^2.4.2"
+    }
+}
