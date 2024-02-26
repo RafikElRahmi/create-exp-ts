@@ -26,7 +26,7 @@ export async function getConfigs() {
             {
                 type: "text",
                 name: "mainEntry",
-                message: "main (index.js):",
+                message: "main (index.ts):",
                 initial: "",
             },
             {

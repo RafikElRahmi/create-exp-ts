@@ -29,7 +29,8 @@ export function packageJson(projectOptions) {
     "devDependencies": {
         "@types/cookie-parser": "^1.4.6",
         "@types/express": "4.17.21",
-        "@types/node": "20.11.19",
+        "@types/node": "20.11.19", 
+        "@types/cors": "^2.8.17",
         "nodemon": "^3.0.3",
         "ts-node": "10.9.2",
         "tsc-alias": "^1.8.8",

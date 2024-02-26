@@ -4,6 +4,7 @@ import fs from "fs-extra";
 export function createControllers(projectPath) {
     const userController = `import { Request, Response } from "express";
 import userService from "../services/user.service";
+import { ObjectId } from "mongodb";
 
 export async function getAllUsers(_req: Request, res: Response) {
     try {
@@ -20,7 +21,7 @@ export async function getAllUsers(_req: Request, res: Response) {
 export async function getUserById(req: Request, res: Response) {
     try {
         const id = req.params.id;
-        if (!id || id.length != 24)
+        if (!ObjectId.isValid(id))
             return res.status(400).send("Id is required");
         const user = await userService.getUserById(id);
         if (!user || !user.found) return res.status(404).send("User not found");
@@ -52,7 +53,7 @@ export async function updateUser(req: Request, res: Response) {
     try {
         const { password, email } = req.body as userData;
         const id = req.params.id;
-        if (!password || !email || !id || id.length != 24)
+        if (!password || !email || !ObjectId.isValid(id))
             return res
                 .status(400)
                 .send("id, Password and Email are required to update a User.");
@@ -72,7 +73,7 @@ export async function updateUser(req: Request, res: Response) {
 export async function deleteUser(req: Request, res: Response) {
     try {
         const id = req.params.id;
-        if (!id || id.length != 24)
+        if (!ObjectId.isValid(id))
             return res
                 .status(400)
                 .send("id  is missing in the URL parameters.");
